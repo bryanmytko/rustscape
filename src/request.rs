@@ -20,6 +20,8 @@ impl Request {
             .header(Connection::close())
             .send().unwrap();
 
+        println!("{:#?}", res);
+
         let mut body = String::new();
         res.read_to_string(&mut body).unwrap();
         self.response = body.clone();

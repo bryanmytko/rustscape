@@ -1,13 +1,14 @@
 extern crate hyper;
 
+use std::env;
+
 mod request;
 use request::*;
 
 fn main() {
-    // @TODO get url params from CLI
-    let test_uri = "http://kaizen.website";
+    let url = env::args().nth(1).unwrap();
     let mut request = Request::new();
 
-    println!("Request: {:?}", test_uri);
-    println!("Response: {:?}", request.get(test_uri));
+    println!("Request: {:?}", url);
+    println!("Response: {:?}", request.get(&url));
 }
