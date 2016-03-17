@@ -13,7 +13,7 @@ impl Request {
         }
     }
 
-    pub fn get<'a>(&mut self, uri: &'a str) -> String {
+    pub fn get(&mut self, uri: &str) -> String {
         let client = Client::new();
 
         let mut res = client.get(uri)
